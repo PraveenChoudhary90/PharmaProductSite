@@ -1,0 +1,101 @@
+
+
+/* Footer Page CSS */
+
+.footer {
+  background: #0d1b2a;
+  color: #fff;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 15px;
+  color: #e0e1dd;
+}
+
+.footer-section p {
+  color: #c4c4c4;
+  line-height: 1.5;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #d7e3fc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #89c2d9;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #415a77;
+}
+
+.regulatory {
+  font-size: 0.8rem;
+  color: #b0b0b0;
+  margin-top: 10px;
+}
+
+
+/* home page */
+
+#home{
+    background-image: url("../public/pc1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+    color: rgb(15, 230, 230);
+}
+
+/* login page */
+#from{
+  margin: auto;
+  width: 400px;
+  box-shadow: 0px 0px 9px;
+  border: 1px solid black;
+  padding: 12px;
+}
+
+
+
+/* admin page */
+
+#admin2{
+    margin-top: 30px;
+}
+
+#from1{
+  margin: auto;
+  width: 50%;
+  box-shadow: 0px 0px 9px;
+  border: 1px solid black;
+  padding: 12px;
+  margin-bottom: 50px;
+}
