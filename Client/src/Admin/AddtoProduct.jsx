@@ -51,7 +51,7 @@ const HandelSubmit = async(e)=>{
 
   return (
     <>
-    
+    <div id="product">
             <div id="from1">
             <h6>Add Product Form</h6>
                   <Form>
@@ -125,7 +125,7 @@ const HandelSubmit = async(e)=>{
           </Button>
         </Form>
         </div>
-    
+    </div>
     
     </>
   )
