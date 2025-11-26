@@ -3,6 +3,7 @@ const route = express.Router();
 const multer = require('multer');
 const path = require('path');
 const AdminController = require("../Controller/AdminController");
+const MRController  =require("../Controller/MrController");
 
 
 
@@ -30,6 +31,7 @@ route.get("/DisplayProduct", AdminController.DisplayProduct);
 route.post("/DeleteProduct",AdminController.DeleteProduct);
 route.post("/UpdateGetData", AdminController.UpdateGetData);
 route.post("/UpdateProduct",upload.array("defaultImage", 10), AdminController.UpdateProduct);
+route.post("/MrInsert", upload.single("image"), MRController.MrInsert)
 
 
 
