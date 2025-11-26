@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const MRSchema =new mongoose.Schema({
 
       name: String,
-      email: Number,
+      email: String,
       number: Number,
-      ano: String,
+      ano: Number,
       image:String,
      status: {
      type: String,
