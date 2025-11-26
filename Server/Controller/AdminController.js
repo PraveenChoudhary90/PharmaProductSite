@@ -1,6 +1,8 @@
 const AdminModel = require("../Model/AdminModel");
 const ProductModel = require("../Model/ProductModel");
 
+const fs = require("fs");
+
 
 const InsertAdmin = async(req,res)=>{
     const {name, email,password} =req.body;
@@ -83,11 +85,49 @@ const UpdateGetData = async(req,res)=>{
     res.status(200).send(Product);
 }
 
+const UpdateProduct = async (req, res) => {
+  try {
+    const { _id } = req.body;
+
+    const oldProduct = await ProductModel.findById(_id);
+
+    if (!oldProduct) {
+      return res.status(400).send({ msg: "Product not found!" });
+    }
+
+    let updatedImage = oldProduct.defaultImage;
+
+    if (req.files && req.files.length > 0) {
+      updatedImage = req.files[0].path;
+
+      if (oldProduct.defaultImage && fs.existsSync(oldProduct.defaultImage)) {
+        fs.unlinkSync(oldProduct.defaultImage);
+      }
+    }
+
+    await ProductModel.findByIdAndUpdate(
+      _id,
+      {
+        ...req.body,
+        defaultImage: updatedImage
+      },
+      { new: true }
+    );
+
+    res.status(200).send({ msg: "Product updated successfully!" });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ msg: "Error updating product!", error });
+  }
+};
+
 module.exports = {
     InsertAdmin,
     AdminLogin,
     ProductInsert,
     DisplayProduct,
     DeleteProduct,
-    UpdateGetData
+    UpdateGetData,
+    UpdateProduct
 }

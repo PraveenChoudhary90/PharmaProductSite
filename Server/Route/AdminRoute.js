@@ -29,6 +29,7 @@ route.post("/InsertProduct",upload.array("image", 10) ,AdminController.ProductIn
 route.get("/DisplayProduct", AdminController.DisplayProduct);
 route.post("/DeleteProduct",AdminController.DeleteProduct);
 route.post("/UpdateGetData", AdminController.UpdateGetData);
+route.post("/UpdateProduct",upload.array("defaultImage", 10), AdminController.UpdateProduct);
 
 
 
