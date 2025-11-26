@@ -26,6 +26,7 @@ const upload = multer({
 route.post("/InsertAdmin", AdminController.InsertAdmin);
 route.post("/AdminLogin", AdminController.AdminLogin);
 route.post("/InsertProduct",upload.array("image", 10) ,AdminController.ProductInsert);
+route.get("/DisplayProduct", AdminController.DisplayProduct);
 
 
 

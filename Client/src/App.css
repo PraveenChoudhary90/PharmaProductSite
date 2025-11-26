@@ -99,3 +99,13 @@
   padding: 12px;
   margin-bottom: 50px;
 }
+
+
+#card{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  margin-top: 40px;
+  gap: 30px;
+  margin: 30px;
+}
+

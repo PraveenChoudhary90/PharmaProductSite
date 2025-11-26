@@ -1,4 +1,5 @@
 const AdminModel = require("../Model/AdminModel");
+const ProductModel = require("../Model/ProductModel");
 
 
 const InsertAdmin = async(req,res)=>{
@@ -37,17 +38,40 @@ const AdminLogin = async(req,res)=>{
 
 
 const ProductInsert = async(req,res)=>{
-    console.log(req.body);
-    console.log(req.files);
-    res.send("okkk");
+const {  category,subCategory,productname,brand,mrp,price,batchNo,mfgDate,expDate}= req.body;
+const ImageUrl = req.files.map(file=>file.path);
+try {
+    const Product = await ProductModel.create({
+        category:category,
+        subCategory:subCategory,
+        productname:productname,
+        brand:brand,
+        mrp:mrp,
+        price:price,
+        batchNo:batchNo,
+        mfgDate:mfgDate,
+        expDate:expDate,
+        defaultImage:ImageUrl[0],
+        image:ImageUrl
+    })
+    console.log(Product);
+    res.status(200).send({msg:"Product is Insert Successfully"});
+    
+} catch (error) {
+    console.log(error)
+}
 }
 
 
-
+const DisplayProduct = async(req,res)=>{
+    const Product = await ProductModel.find();
+    res.status(200).send(Product);
+}
 
 
 module.exports = {
     InsertAdmin,
     AdminLogin,
-    ProductInsert
+    ProductInsert,
+    DisplayProduct
 }

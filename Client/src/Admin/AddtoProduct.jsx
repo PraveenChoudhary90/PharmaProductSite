@@ -40,9 +40,8 @@ const HandelSubmit = async(e)=>{
         "Content-Type": "multipart/form-data",
     }
      });
-
         console.log(response.data);
-        alert("insert Product");
+        alert(response.data.msg)
         
     } catch (error) {
         console.log(error);
