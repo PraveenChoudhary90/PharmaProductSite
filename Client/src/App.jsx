@@ -9,6 +9,7 @@ import AdminDashboard from './Admin/AdminDashboard'
 import User from './Admin/User'
 import MR from './Admin/MR'
 import AddtoProduct from './Admin/AddtoProduct'
+import ProductDisplay from './Admin/ProductDisplay'
 
 function App() {
  
@@ -29,6 +30,7 @@ function App() {
       <Route path='addproduct' element={<AddtoProduct/>}/>
       <Route path='user' element={<User/>}/>
       <Route path='mr' element={<MR/>}/>
+      <Route path='display' element={<ProductDisplay/>}/>
       </Route>
      </Routes>
      </BrowserRouter>

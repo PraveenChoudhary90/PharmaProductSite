@@ -31,7 +31,7 @@ function Home() {
         <Card.Text>
          <h6 style={{fontWeight:"bold"}}>Category:{key. category}</h6>
         <h6>SubCategory:{key. subCategory}</h6>
-        <h6>productname{key. productname}</h6>
+        <h6>productname:{key. productname}</h6>
         <h6>Brand:{key.  brand}</h6>
         <h6>MRP:{key. mrp}</h6>
         <h6>Price:{key. price}</h6>

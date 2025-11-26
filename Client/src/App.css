@@ -109,3 +109,15 @@
   margin: 30px;
 }
 
+/* display product */
+
+#admi1{
+    background-image: url("../public/pc3.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+    color: black;
+    margin-bottom: 50px;
+}

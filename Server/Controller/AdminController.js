@@ -69,9 +69,25 @@ const DisplayProduct = async(req,res)=>{
 }
 
 
+const DeleteProduct = async(req,res)=>{
+    const {_id}=req.body;
+    const Product = await ProductModel.findByIdAndDelete(_id);
+    res.status(200).send({msg:"Product is deleted Successfully"});
+}
+
+
+
+const UpdateGetData = async(req,res)=>{
+    const {_id} =req.body;
+    const Product = await ProductModel.findById(_id);
+    res.status(200).send(Product);
+}
+
 module.exports = {
     InsertAdmin,
     AdminLogin,
     ProductInsert,
-    DisplayProduct
+    DisplayProduct,
+    DeleteProduct,
+    UpdateGetData
 }
