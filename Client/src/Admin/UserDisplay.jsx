@@ -5,9 +5,35 @@ import BASE_URL from '../Config/Config';
 import axios from 'axios';
 // import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
+import { MdDelete } from "react-icons/md";
+import { MdSystemSecurityUpdateGood } from "react-icons/md";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function UserDisplay() {
     const [mydata, setMydata] = useState([]);
+    const [input, setInput]  =useState({});
+      const [image, setImage] = useState(null);
+            
+          const handelInput = (e)=>{
+              const name = e.target.name;
+              const value = e.target.value;
+              setInput(values=>({...values, [name]:value}));
+              console.log(input);
+          }
+      
+          const HandelImage = (e)=>{
+            setImage(e.target.files[0]);
+            console.log(image);
+          }
+    
+    
+       const [show, setShow] = useState(false);
+    
+      const handleClose = () => setShow(false);
+      const handleShow = () => setShow(true);
+    
 
   const LoadData = async()=>{
     const api = `${BASE_URL}/admin/DisplayUser`;
@@ -19,6 +45,67 @@ function UserDisplay() {
   useEffect(()=>{
     LoadData();
   },[])
+
+
+  const HandelDelete =(_id)=>{
+    const api = `${BASE_URL}/admin/UserDelete`;
+    try {
+    const response = axios.post(api,{_id:_id})
+    console.log(response.data);
+    // alert("user deleted successfully")
+    LoadData(); 
+    } catch (error) {
+        console.log(error)
+    }
+   
+
+  }
+
+  const HandelUpdate = async(_id)=>{
+    const api = `${BASE_URL}/admin/Usergetupdatedata`;
+    try {
+        const response  = await axios.post(api,{_id:_id});
+        console.log(response.data);
+        setInput(response.data);
+        setShow(true)
+
+    } catch (error) {
+        console.log(error)
+    }
+
+  }
+
+
+    
+
+   const handelupdateSubmit = async(e)=>{
+    e.preventDefault();
+
+
+    const api = `${BASE_URL}/admin/handelupdateUser`;
+
+
+     const formData = new FormData();
+     
+     for(let key in input){
+        formData.append(key, input[key]);
+     }
+
+     if(image){
+        formData.append("image", image);
+     }
+     try {
+        const response =  await axios.post(api, formData)
+        console.log(response.data);
+        alert(response.data.msg)
+        setShow(false);
+        LoadData();
+     } catch (error) {
+        console.log(error)
+     }
+   }
+
+
 
 
     const ans = mydata.map(key=>{
@@ -33,10 +120,14 @@ function UserDisplay() {
                 <td>{key.number}</td>
                 <td>{key.ano}</td>
                 <td>{key.status}</td>
+                <td style={{fontSize:"25px"}} onClick={()=>{HandelDelete(key._id)}}><MdDelete /></td>
+                <td style={{fontSize:"25px"}} onClick={()=>{HandelUpdate(key._id)}}><MdSystemSecurityUpdateGood /></td>
             </tr>
             </>
         )
     })
+
+
 
 
   return (
@@ -51,12 +142,56 @@ function UserDisplay() {
               <th>Mo No</th>
               <th>Adhar No</th>
               <th>Status</th>
+              <th>Delete</th>
+              <th>Update</th>
               </tr>
             </thead>
             <tbody>
               {ans}
               </tbody>
               </Table>
+
+       <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Update Form</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+                 <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Enter  Name </Form.Label>
+        <Form.Control type="text" placeholder="Enter name" name='name' value={input.name} onChange={handelInput}  />
+      </Form.Group>
+
+       <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Enter  Email </Form.Label>
+        <Form.Control type="email" placeholder="Enter email" name='email' value={input.email} onChange={handelInput}  />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Enter Mo Number </Form.Label>
+        <Form.Control type="number" placeholder="Enter number" name='number' value={input.number} onChange={handelInput}  />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Enter Adhar Number </Form.Label>
+        <Form.Control type="number" placeholder="Enter Adar number" name='ano' value={input.ano} onChange={handelInput}  />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label> Adhar Image </Form.Label>
+        <Form.Control type="file" name='image' onChange={HandelImage} />
+      </Form.Group>
+      <Button variant="primary" type="submit" onClick={handelupdateSubmit}>
+        Submit
+      </Button>
+    </Form>
+        </Modal.Body>
+        </Modal>
+
+
+
+
+
       
       </>
   )
