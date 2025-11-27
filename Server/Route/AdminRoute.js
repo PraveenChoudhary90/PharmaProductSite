@@ -38,6 +38,7 @@ route.get("/DisplayMR", MRController.DisplayMR);
 route.get("/DisplayUser", UserController.DisplayUser);
 route.post("/MrDelete", MRController.MrDelete);
 route.post("/mrgetupdatedata", MRController.mrgetupdatedata);
+route.post("/handelupdateMr",upload.single("image"), MRController.handelupdateMr);
 
 
 

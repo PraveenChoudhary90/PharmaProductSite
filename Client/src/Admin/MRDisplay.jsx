@@ -14,7 +14,7 @@ import Form from 'react-bootstrap/Form';
 function MRDisplay() {
     const [mydata, setMydata] = useState([]);
     const [input, setInput]  =useState({});
-      const [image, setImage] = useState("");
+      const [image, setImage] = useState(null);
             
           const handelInput = (e)=>{
               const name = e.target.name;
@@ -75,6 +75,39 @@ function MRDisplay() {
 
   }
 
+
+    
+
+   const handelupdateSubmit = async(e)=>{
+    e.preventDefault();
+
+
+    const api = `${BASE_URL}/admin/handelupdateMr`;
+
+
+     const formData = new FormData();
+     
+     for(let key in input){
+        formData.append(key, input[key]);
+     }
+
+     if(image){
+        formData.append("image", image);
+     }
+     try {
+        const response =  await axios.post(api, formData)
+        console.log(response.data);
+        alert(response.data.msg)
+        setShow(false);
+        LoadData();
+     } catch (error) {
+        console.log(error)
+     }
+   }
+
+
+
+
     const ans = mydata.map(key=>{
         return(
             <>
@@ -94,11 +127,6 @@ function MRDisplay() {
         )
     })
 
-
-
-   const handelSubmit = ()=>{
-    
-   }
 
 
 
@@ -150,10 +178,10 @@ function MRDisplay() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label> Adar Image </Form.Label>
-        <Form.Control type="file"  onChange={HandelImage} />
+        <Form.Label> Adhar Image </Form.Label>
+        <Form.Control type="file" name='image' onChange={HandelImage} />
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={handelSubmit}>
+      <Button variant="primary" type="submit" onClick={handelupdateSubmit}>
         Submit
       </Button>
     </Form>
