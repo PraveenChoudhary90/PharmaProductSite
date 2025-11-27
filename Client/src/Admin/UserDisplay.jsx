@@ -32,6 +32,7 @@ function UserDisplay() {
                 <td>{key.email}</td>
                 <td>{key.number}</td>
                 <td>{key.ano}</td>
+                <td>{key.status}</td>
             </tr>
             </>
         )
@@ -40,7 +41,7 @@ function UserDisplay() {
 
   return (
       <>
-      <h1 align="center">MR Display Page</h1>
+      <h1 align="center">User Display Page</h1>
              <Table striped bordered hover>
             <thead>
               <tr>
@@ -49,6 +50,7 @@ function UserDisplay() {
               <th>Email</th>
               <th>Mo No</th>
               <th>Adhar No</th>
+              <th>Status</th>
               </tr>
             </thead>
             <tbody>

@@ -28,7 +28,27 @@ const DisplayMR = async(req,res)=>{
     res.status(200).send(MR);
 }
 
+const MrDelete = async(req,res)=>{
+    const {_id}= req.body;
+    const Mr = await MrModel.findByIdAndDelete(_id);
+    res.send("Mr Delete Successfully");
+    
+}
+
+
+const mrgetupdatedata = async(req,res)=>{
+    const {_id} = req.body;
+    const Mrdata  = await MrModel.findById(_id);
+    console.log(Mrdata);
+    res.send(Mrdata);
+}
+
+
+
+
 module.exports = {
     MrInsert,
-    DisplayMR
+    DisplayMR,
+    MrDelete,
+    mrgetupdatedata
 }

@@ -36,6 +36,8 @@ route.post("/MrInsert", upload.single("image"), MRController.MrInsert)
 route.post("/UserInsert", upload.single("image"), UserController.UserInsert)
 route.get("/DisplayMR", MRController.DisplayMR);
 route.get("/DisplayUser", UserController.DisplayUser);
+route.post("/MrDelete", MRController.MrDelete);
+route.post("/mrgetupdatedata", MRController.mrgetupdatedata);
 
 
 
