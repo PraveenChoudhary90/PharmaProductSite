@@ -75,7 +75,7 @@ const MR = ()=>{
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Enter Adar Number </Form.Label>
+        <Form.Label>Enter Adhar Number </Form.Label>
         <Form.Control type="number" placeholder="Enter Adar number" name='ano' value={input.ano} onChange={handelInput}  />
       </Form.Group>
 

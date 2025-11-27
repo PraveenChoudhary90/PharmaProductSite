@@ -130,3 +130,13 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+#dash{
+  background-image: url("../public/pc4.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+    color: rgb(15, 230, 230);
+}

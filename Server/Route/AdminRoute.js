@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const AdminController = require("../Controller/AdminController");
 const MRController  =require("../Controller/MrController");
+const UserController = require("../Controller/UserController");
 
 
 
@@ -32,6 +33,9 @@ route.post("/DeleteProduct",AdminController.DeleteProduct);
 route.post("/UpdateGetData", AdminController.UpdateGetData);
 route.post("/UpdateProduct",upload.array("defaultImage", 10), AdminController.UpdateProduct);
 route.post("/MrInsert", upload.single("image"), MRController.MrInsert)
+route.post("/UserInsert", upload.single("image"), UserController.UserInsert)
+route.get("/DisplayMR", MRController.DisplayMR);
+route.get("/DisplayUser", UserController.DisplayUser);
 
 
 

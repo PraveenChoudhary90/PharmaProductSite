@@ -23,6 +23,12 @@ const MrInsert = async(req,res)=>{
 }
 
 
+const DisplayMR = async(req,res)=>{
+    const MR = await MrModel.find();
+    res.status(200).send(MR);
+}
+
 module.exports = {
-    MrInsert
+    MrInsert,
+    DisplayMR
 }

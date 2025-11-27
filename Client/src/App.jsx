@@ -10,6 +10,9 @@ import User from './Admin/User'
 import MR from './Admin/MR'
 import AddtoProduct from './Admin/AddtoProduct'
 import ProductDisplay from './Admin/ProductDisplay'
+import Dashboard from './Admin/Dashboard'
+import MRDisplay from './Admin/MRDisplay'
+import UserDisplay from './Admin/UserDisplay'
 
 function App() {
  
@@ -31,6 +34,9 @@ function App() {
       <Route path='user' element={<User/>}/>
       <Route path='mr' element={<MR/>}/>
       <Route path='display' element={<ProductDisplay/>}/>
+      <Route path='dashbord' element={<Dashboard/>}/>
+      <Route path='mrdisplay' element={<MRDisplay/>}/>
+      <Route path='userdisplay' element={<UserDisplay/>}/>
       </Route>
      </Routes>
      </BrowserRouter>

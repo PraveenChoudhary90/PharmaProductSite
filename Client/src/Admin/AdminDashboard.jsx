@@ -19,22 +19,24 @@ function AdminDashboard() {
         <div id="admin1">
            <Navbar bg="primary" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand as={Link}  to="#admin">Dashboard</Navbar.Brand>
+          <Navbar.Brand as={Link}  to="dashbord">Dashboard</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="addproduct">AddToProduct</Nav.Link>
             <Nav.Link as={Link} to="display">ProductDisplay</Nav.Link>
             <Nav.Link as={Link} to="user">User Create</Nav.Link>
+            <Nav.Link  as={Link} to="userdisplay">User Display </Nav.Link>
             <Nav.Link  as={Link} to="mr">MR Create </Nav.Link>
+            <Nav.Link  as={Link} to="mrdisplay">MR Display </Nav.Link>
           </Nav>
         </Container>
        <Button variant="warning" onClick={Logout}>Logout</Button>
       </Navbar>
-
       </div>
       <div id="admin2">
         <Outlet/>
       </div>
       </div>
+
 
      
      </>
