@@ -1,4 +1,5 @@
 const AdminModel = require("../Model/AdminModel");
+const KycCustomerModel = require("../Model/KycCustomerModel");
 const ProductModel = require("../Model/ProductModel");
 
 const fs = require("fs");
@@ -122,6 +123,17 @@ const UpdateProduct = async (req, res) => {
   }
 };
 
+
+
+
+const DisplaykycCustomer = async(req,res)=>{
+   
+  const Customer = await KycCustomerModel.find();
+  res.send(Customer);
+
+
+}
+
 module.exports = {
     InsertAdmin,
     AdminLogin,
@@ -129,5 +141,6 @@ module.exports = {
     DisplayProduct,
     DeleteProduct,
     UpdateGetData,
-    UpdateProduct
+    UpdateProduct,
+    DisplaykycCustomer
 }

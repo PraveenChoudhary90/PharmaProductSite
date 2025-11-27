@@ -28,6 +28,7 @@ function AdminDashboard() {
             <Nav.Link  as={Link} to="mr">MR Create </Nav.Link>
             <Nav.Link  as={Link} to="mrdisplay">MR Display </Nav.Link>
             <Nav.Link  as={Link} to="kyccheck">Kyc Status </Nav.Link>
+            <Nav.Link  as={Link} to="kyccustomer">Display Customer </Nav.Link>
           </Nav>
         </Container>
        <Button variant="warning" onClick={Logout}>Logout</Button>

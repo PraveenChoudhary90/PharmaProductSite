@@ -42,6 +42,7 @@ route.post("/handelupdateMr",upload.single("image"), MRController.handelupdateMr
 route.post("/UserDelete", UserController.UserDelete);
 route.post("/Usergetupdatedata", UserController.Usergetupdatedata);
 route.post("/handelupdateUser",upload.single("image"), UserController.handelupdateUser);
+route.get("/DisplaykycCustomer", AdminController.DisplaykycCustomer);
 
 
 
