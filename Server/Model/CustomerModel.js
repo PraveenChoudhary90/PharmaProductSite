@@ -5,7 +5,12 @@ const CustomerSchema = new mongoose.Schema({
     email:String,
     number:Number,
     city:String,
-    password:String
+    password:String,
+   status: {
+     type: String,
+     enum: ["pending", "approved", "blocked"],
+     default: "pending"
+  }
 })
 
 
