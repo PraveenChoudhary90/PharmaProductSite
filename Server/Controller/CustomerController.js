@@ -1,4 +1,5 @@
 const CustomerModel = require("../Model/CustomerModel");
+const KycCustomerModel = require("../Model/KycCustomerModel");
 
 
 
@@ -34,9 +35,28 @@ const customerLogin = async(req,res)=>{
     
 }
 
+const KycCustomer = async(req,res)=>{
+    const {name,city,number,ano} =req.body;
+    const ImageUrl = req.file.path;
+    try {
+        const kycCustomer = await KycCustomerModel.create({
+            name:name,
+            city:city,
+            number:number,
+            ano:ano,
+            image:ImageUrl
+        })
+        console.log(kycCustomer)
+        res.send({msg:"Kyc Process is done wait for status"})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 
 module.exports ={
     customerInsert,
-    customerLogin
+    customerLogin,
+    KycCustomer
 }
