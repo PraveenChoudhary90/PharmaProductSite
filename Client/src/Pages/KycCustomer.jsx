@@ -65,6 +65,11 @@ const Kyc = ()=>{
       </Form.Group>
 
        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Enter  Email </Form.Label>
+        <Form.Control type="email" placeholder="Enter email" name='email' value={input.email} onChange={handelInput}  />
+      </Form.Group>
+
+       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Enter  City </Form.Label>
         <Form.Control type="text" placeholder="Enter City" name='city' value={input.city} onChange={handelInput}  />
       </Form.Group>

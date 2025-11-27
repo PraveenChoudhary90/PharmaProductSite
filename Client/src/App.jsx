@@ -16,6 +16,7 @@ import UserDisplay from './Admin/UserDisplay'
 import Customer from './Pages/Customer'
 import Kyc from './Pages/KycCustomer'
 import CustomerLogin from './Pages/CustomerLogin'
+import KycCheck from './Admin/AdminKycCheck'
 
 function App() {
  
@@ -43,6 +44,7 @@ function App() {
       <Route path='dashbord' element={<Dashboard/>}/>
       <Route path='mrdisplay' element={<MRDisplay/>}/>
       <Route path='userdisplay' element={<UserDisplay/>}/>
+      <Route path='kyccheck' element={<KycCheck/>}/>
       </Route>
      </Routes>
      </BrowserRouter>

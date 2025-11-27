@@ -2,6 +2,7 @@
 const mongoose = require("mongoose");
 const KycCustomerSchema = new mongoose.Schema({
     name:String,
+    email:String,
     city:String,
     number:Number,
     ano:Number,

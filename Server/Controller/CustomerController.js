@@ -36,11 +36,12 @@ const customerLogin = async(req,res)=>{
 }
 
 const KycCustomer = async(req,res)=>{
-    const {name,city,number,ano} =req.body;
+    const {name,email,city,number,ano} =req.body;
     const ImageUrl = req.file.path;
     try {
         const kycCustomer = await KycCustomerModel.create({
             name:name,
+            email:email,
             city:city,
             number:number,
             ano:ano,
@@ -54,9 +55,21 @@ const KycCustomer = async(req,res)=>{
 }
 
 
+const AdminKycStatus = async(req,res)=>{
+    const {email,status}= req.body;
+    try {
+        const Kyc = await KycCustomerModel.findOneAndUpdate({email},{status},{new:true});
+        console.log(Kyc);
+        res.send({msg:"Status is change"});
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 module.exports ={
     customerInsert,
     customerLogin,
-    KycCustomer
+    KycCustomer,
+    AdminKycStatus
 }
