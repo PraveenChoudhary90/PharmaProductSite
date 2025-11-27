@@ -39,7 +39,7 @@ const KycCheck = ()=>{
         <>
         <div id="from">
       <Form>
-
+          <h4>Admin Approve and Reject the status</h4>
        <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Enter  Email </Form.Label>
         <Form.Control type="email" placeholder="Enter email" name='email' value={input.email} onChange={handelInput} />
