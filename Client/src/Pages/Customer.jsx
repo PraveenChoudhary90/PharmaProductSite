@@ -27,7 +27,7 @@ const Customer = ()=>{
     const response = await axios.post(api,input);
     console.log(response.data);
     alert(response.data.msg)
-    navigate("/kyc");
+    navigate("/customerLogin");
   }
 
 
@@ -64,7 +64,7 @@ const Customer = ()=>{
         Submit
       </Button>
     </Form>
-    <h6>If you Already Sing Up please Login <button onClick={()=>{navigate("/kyc")}}>Sing In</button></h6>
+    <h6>If you Already Sing Up please Login <button onClick={()=>{navigate("/customerLogin")}}>Sing In</button></h6>
     </div>
         </>
     )

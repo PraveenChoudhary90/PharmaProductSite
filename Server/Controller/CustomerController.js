@@ -16,7 +16,27 @@ const customerInsert= async(req,res)=>{
 }
 
 
+const customerLogin = async(req,res)=>{
+       const {email,password} = req.body;
+       const Customer  =await CustomerModel.findOne({email:email});
+        try {
+           if(!Customer){
+           res.status(401).send({msg:"Invalid Email Please Take Valid Email"})
+       }
+       if(Customer.password!=password){
+           res.status(401).send({msg:"Invalid Password"})
+       }
+       res.status(200).send({msg:"You Are Login Successfully", Customer:Customer}); 
+        } catch (error) {
+           console.log(error)
+        }
+      
+    
+}
+
+
 
 module.exports ={
-    customerInsert
+    customerInsert,
+    customerLogin
 }

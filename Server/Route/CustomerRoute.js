@@ -4,8 +4,7 @@ const CustomerController = require("../Controller/CustomerController");
 
 
 route.post("/customerInsert", CustomerController.customerInsert);
-
-
+route.post("/customerLogin", CustomerController.customerLogin);
 
 
 

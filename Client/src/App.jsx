@@ -15,6 +15,7 @@ import MRDisplay from './Admin/MRDisplay'
 import UserDisplay from './Admin/UserDisplay'
 import Customer from './Pages/Customer'
 import Kyc from './Pages/KycCustomer'
+import CustomerLogin from './Pages/CustomerLogin'
 
 function App() {
  
@@ -30,6 +31,7 @@ function App() {
       <Route path='login' element={<Login/>}/>
       <Route path='customer' element={<Customer/>}/>
       <Route path='kyc' element={<Kyc/>}/>
+      <Route path='customerLogin' element={<CustomerLogin/>}/>
       </Route>
      </Routes>
      <Routes>

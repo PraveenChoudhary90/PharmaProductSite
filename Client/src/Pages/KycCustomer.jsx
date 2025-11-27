@@ -1,9 +1,15 @@
 
 
 const Kyc = ()=>{
+
+
+    
+
+
+
     return(
         <>
-        <h1>Kyc page</h1>
+        <h1>Kyc Page</h1>
         </>
     )
 }
