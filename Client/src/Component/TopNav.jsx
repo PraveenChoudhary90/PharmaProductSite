@@ -24,8 +24,8 @@ const TopNav = ()=>{
             <Nav.Link  as={Link}  to="about">About</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item  as={Link} to="login">Admin Login</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
+              <NavDropdown.Item as={Link} to="customer">
+                Customer Sing Up
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">

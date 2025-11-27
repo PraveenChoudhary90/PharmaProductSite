@@ -140,3 +140,16 @@
     text-align: center;
     color: rgb(15, 230, 230);
 }
+
+
+
+
+
+/* customer from page */
+#customerform{
+  width: 50%;
+  margin: auto;
+  box-shadow: 0px 0px 9px;
+  padding: 13px;
+  
+}

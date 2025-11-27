@@ -13,6 +13,8 @@ import ProductDisplay from './Admin/ProductDisplay'
 import Dashboard from './Admin/Dashboard'
 import MRDisplay from './Admin/MRDisplay'
 import UserDisplay from './Admin/UserDisplay'
+import Customer from './Pages/Customer'
+import Kyc from './Pages/KycCustomer'
 
 function App() {
  
@@ -26,6 +28,8 @@ function App() {
       <Route path='home' element={<Home/>}/>
       <Route path='about' element={<About/>}/>
       <Route path='login' element={<Login/>}/>
+      <Route path='customer' element={<Customer/>}/>
+      <Route path='kyc' element={<Kyc/>}/>
       </Route>
      </Routes>
      <Routes>
