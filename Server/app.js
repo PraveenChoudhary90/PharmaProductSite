@@ -6,6 +6,7 @@ require("dotenv").config();
 const path = require('path'); 
 const AdminRoute = require("./Route/AdminRoute");
 const CustomerRoute = require("./Route/CustomerRoute");
+const ProductAttribute = require("./Route/ProductAttributeRoute");
 
 const app = express();
 
@@ -27,7 +28,7 @@ mongoose.connect(process.env.CONNECTION).then(()=>{
 
 app.use("/admin", AdminRoute);
 app.use("/customer",CustomerRoute);
-
+app.use("/product", ProductAttribute)
 
 const port = process.env.PORT || 8000;
 app.listen(port, ()=>{

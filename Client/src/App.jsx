@@ -19,6 +19,7 @@ import CustomerLogin from './Pages/CustomerLogin'
 // import KycCheck from './Admin/AdminKycCheck'
 import CustomerKycDisplay from './Admin/CustomerkycDisplay'
 import CheckkycStatus from './Pages/CheckKycStatus'
+import Attributes from './Admin/Attributes'
 
 function App() {
  
@@ -49,6 +50,7 @@ function App() {
       <Route path='userdisplay' element={<UserDisplay/>}/>
       {/* <Route path='kyccheck' element={<KycCheck/>}/> */}
       <Route path='kyccustomer' element={<CustomerKycDisplay/>}/>
+      <Route path='attribute' element={<Attributes/>}/>
       </Route>
      </Routes>
      </BrowserRouter>
