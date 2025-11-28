@@ -16,7 +16,7 @@ import UserDisplay from './Admin/UserDisplay'
 import Customer from './Pages/Customer'
 import Kyc from './Pages/KycCustomer'
 import CustomerLogin from './Pages/CustomerLogin'
-import KycCheck from './Admin/AdminKycCheck'
+// import KycCheck from './Admin/AdminKycCheck'
 import CustomerKycDisplay from './Admin/CustomerkycDisplay'
 
 function App() {
@@ -45,7 +45,7 @@ function App() {
       <Route path='dashbord' element={<Dashboard/>}/>
       <Route path='mrdisplay' element={<MRDisplay/>}/>
       <Route path='userdisplay' element={<UserDisplay/>}/>
-      <Route path='kyccheck' element={<KycCheck/>}/>
+      {/* <Route path='kyccheck' element={<KycCheck/>}/> */}
       <Route path='kyccustomer' element={<CustomerKycDisplay/>}/>
       </Route>
      </Routes>
