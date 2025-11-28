@@ -4,11 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import BASE_URL from '../Config/Config';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 const Kyc = ()=>{
     const [input, setInput] = useState({});
     const [image, setImage] = useState(null);
 
-
+    const navigate = useNavigate();
      
     const handelInput = (e)=>{
         const name = e.target.name;
@@ -92,6 +93,7 @@ const Kyc = ()=>{
         Submit
       </Button>
     </Form>
+    You Can Check The KYC Status <button onClick={()=>{navigate("/kycstatus")}}>Check</button>
     </div>
 
         

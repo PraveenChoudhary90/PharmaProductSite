@@ -18,6 +18,7 @@ import Kyc from './Pages/KycCustomer'
 import CustomerLogin from './Pages/CustomerLogin'
 // import KycCheck from './Admin/AdminKycCheck'
 import CustomerKycDisplay from './Admin/CustomerkycDisplay'
+import CheckkycStatus from './Pages/CheckKycStatus'
 
 function App() {
  
@@ -34,6 +35,7 @@ function App() {
       <Route path='customer' element={<Customer/>}/>
       <Route path='kyc' element={<Kyc/>}/>
       <Route path='customerLogin' element={<CustomerLogin/>}/>
+      <Route path='kycstatus' element={<CheckkycStatus/>}/>
       </Route>
      </Routes>
      <Routes>
