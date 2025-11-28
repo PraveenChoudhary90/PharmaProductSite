@@ -134,6 +134,61 @@ const DisplaykycCustomer = async(req,res)=>{
 
 }
 
+
+const KycApprovedReject = async(req,res)=>{
+  const {_id} =req.body;
+  const kycCustomer = await KycCustomerModel.findById(_id);
+  console.log(kycCustomer);
+  res.send(kycCustomer);
+}
+
+
+const updateStatusApprove = async(req,res)=>{
+  const {status,email} =req.body;
+  const KycUser  = await KycCustomerModel.findOneAndUpdate({email},{status},{new:true})
+  console.log(KycUser);
+  res.send({msg:"Status is change"})
+}
+
+
+const updateStatusReject = async (req, res) => {
+  try {
+    const { email, reason } = req.body;
+
+    if (!email || !reason) {
+      return res.status(400).json({ msg: "Email और reason दोनों चाहिए" });
+    }
+
+    // Find user and update
+   const user = await KycCustomerModel.findOneAndUpdate(
+  { email },
+  {
+    status: "rejected",
+    $push: { rejectReasons: reason },
+    reason:reason, 
+    rejectedAt: new Date()
+  },
+  { new: true }
+);
+
+
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    console.log("Updated user:", user);
+    res.status(200).json({ msg: "KYC status updated to rejected", user });
+
+  } catch (error) {
+    console.error("Error updating KYC:", error);
+    res.status(500).json({ msg: "Server error" });
+  }
+};
+
+
+
+
+
 module.exports = {
     InsertAdmin,
     AdminLogin,
@@ -142,5 +197,8 @@ module.exports = {
     DeleteProduct,
     UpdateGetData,
     UpdateProduct,
-    DisplaykycCustomer
+    DisplaykycCustomer,
+    KycApprovedReject,
+    updateStatusApprove,
+    updateStatusReject
 }

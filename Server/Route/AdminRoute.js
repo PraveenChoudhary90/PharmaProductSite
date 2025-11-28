@@ -43,6 +43,9 @@ route.post("/UserDelete", UserController.UserDelete);
 route.post("/Usergetupdatedata", UserController.Usergetupdatedata);
 route.post("/handelupdateUser",upload.single("image"), UserController.handelupdateUser);
 route.get("/DisplaykycCustomer", AdminController.DisplaykycCustomer);
+route.post("/KycApprovedReject",AdminController.KycApprovedReject);
+route.post("/updateStatusApprove", AdminController.updateStatusApprove);
+route.post("/updateStatusReject", AdminController.updateStatusReject);
 
 
 
