@@ -8,6 +8,9 @@ const ProductAttributeController= require("../Controller/ProductAttributeControl
 
 route.post("/AttributeInsert", ProductAttributeController.AttributeInsert);
 route.get("/AttributeDisplay", ProductAttributeController.AttributeDisplay);
+route.post("/SubAttributeInsert", ProductAttributeController.SubAttributeInsert);
+
+
 
 
 

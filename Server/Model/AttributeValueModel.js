@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose  =require("mongoose");
 
 const attributeValueSchema = new mongoose.Schema({
   attributeId: {
@@ -6,10 +6,10 @@ const attributeValueSchema = new mongoose.Schema({
     ref: "Attribute",
     required: true
   },
-  value: {
+  subname: {
     type: String,
     required: true
   }
 });
 
-export default mongoose.model("AttributeValue", attributeValueSchema);
+module.exports =  mongoose.model("AttributeValue", attributeValueSchema);

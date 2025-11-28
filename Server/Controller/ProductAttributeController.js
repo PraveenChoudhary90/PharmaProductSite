@@ -1,6 +1,7 @@
 const AttributeModel = require("../Model/AttributeModel");
+const AttributeValueModel = require("../Model/AttributeValueModel");
 
-
+AttributeValueModel
 
 const AttributeInsert = async(req,res)=>{
 const {name} = req.body;
@@ -17,9 +18,20 @@ const AttributeDisplay = async(req,res)=>{
     res.send(Data);
 }
 
+const SubAttributeInsert = async(req,res)=>{
+    const {attributeId,subname} = req.body;
+    const SubAttribute = await AttributeValueModel.create({
+        subname:subname,
+        attributeId:attributeId
+    })
+    console.log(SubAttribute);
+    res.send({msg:"Sub-Attribute created"});
+}
+
 
 
 module.exports = {
     AttributeInsert,
-    AttributeDisplay
+    AttributeDisplay,
+    SubAttributeInsert
 }
