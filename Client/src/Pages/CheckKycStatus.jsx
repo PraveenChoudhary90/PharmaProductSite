@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import BASE_URL from '../Config/Config';
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -12,7 +13,8 @@ const CheckkycStatus = ()=>{
 
     const [input, setInput] = useState("");
     const [mydata,setMydata] = useState([]);
-
+     
+    const navigate = useNavigate();
 
      
     const handelInput = (e)=>{
@@ -100,8 +102,8 @@ const CheckkycStatus = ()=>{
         </tbody>
       </Table>
 
-
-        
+         <div id="da" align="center"> <h5>If Your Status is Rejected please go to kyc Page </h5><button onClick={()=>{navigate("/kyc")}}>Go to kyc Page</button>        
+        </div>
         </>
     )
 }
