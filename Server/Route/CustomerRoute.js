@@ -28,6 +28,7 @@ route.post("/customerInsert", CustomerController.customerInsert);
 route.post("/customerLogin", CustomerController.customerLogin);
 route.post("/KycCustomer",upload.single("image"), CustomerController.KycCustomer);
 route.post("/AdminKycStatus",CustomerController.AdminKycStatus);
+route.post("/CustomerKycCheck", CustomerController.CustomerKycCheck);
 
 
 

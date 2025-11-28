@@ -67,9 +67,35 @@ const AdminKycStatus = async(req,res)=>{
 }
 
 
+const CustomerKycCheck = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ msg: "Email is required" });
+    }
+
+    const userCustomer = await KycCustomerModel.findOne({ email: email });
+
+    if (!userCustomer) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+  console.log(userCustomer);
+    res.status(200).send({msg: "If your KYC is rejected, please re-fill the KYC form",userCustomer });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error" });
+  }
+};
+
+
+
+
 module.exports ={
     customerInsert,
     customerLogin,
     KycCustomer,
-    AdminKycStatus
+    AdminKycStatus,
+    CustomerKycCheck
 }
