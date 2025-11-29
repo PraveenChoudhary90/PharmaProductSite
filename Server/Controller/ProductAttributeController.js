@@ -29,9 +29,16 @@ const SubAttributeInsert = async(req,res)=>{
 }
 
 
+const SubAttributeDisplay = async(req,res)=>{
+    const SubProduct = await AttributeValueModel.find();
+    console.log(SubProduct);
+    res.send({msg:"okk data",SubProduct});
+}
+
 
 module.exports = {
     AttributeInsert,
     AttributeDisplay,
-    SubAttributeInsert
+    SubAttributeInsert,
+    SubAttributeDisplay
 }
