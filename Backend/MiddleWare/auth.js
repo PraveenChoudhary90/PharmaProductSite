@@ -1,17 +1,19 @@
 const jwt = require("jsonwebtoken");
 
-module.exports = function (req, res, next) {
-    const token = req.header("Authorization");
+module.exports = (req, res, next) => {
+    const header = req.headers.authorization;
 
-    if (!token) {
-        return res.status(401).json({ message: "Access Denied, Token Missing" });
+    if (!header) {
+        return res.status(401).json({ message: "Token Missing" });
     }
 
+    const token = header.split(" ")[1];
+
     try {
-        const verified = jwt.verify(token, "SECRET_KEY_123");
-        req.admin = verified;
+        const verify = jwt.verify(token, process.env.JWT_SECRET);
+        req.admin = verify; // admin data store
         next();
     } catch (err) {
-        res.status(400).json({ message: "Invalid Token" });
+        return res.status(400).json({ message: "Invalid Token" });
     }
 };
